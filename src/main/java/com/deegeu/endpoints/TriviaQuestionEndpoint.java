@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package endpoints;
+package com.deegeu.endpoints;
 
 import com.deegeu.model.TriviaQuestion;
 import com.deegeu.model.TriviaQuestionAccessible;
