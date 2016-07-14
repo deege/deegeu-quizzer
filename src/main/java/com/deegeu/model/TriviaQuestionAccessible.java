@@ -21,17 +21,43 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.deegeu;
+package com.deegeu.model;
 
-
-import javax.ws.rs.core.Application;
-import javax.ws.rs.ApplicationPath;
+import java.util.List;
 
 /**
- * JAX-RS application. Root path is /trivia
- *
+ * Interface for the data access to a trivia question database.
+ * 
+ * @author DJ Spiess
  */
-@ApplicationPath("/trivia")
-public class App extends Application {
+public interface TriviaQuestionAccessible {
+    /**
+     * Returns a {@link TriviaQuestion} by index.
+     * 
+     * @param index the index of the trivia question
+     * @return an trivia question by index
+     */
+    TriviaQuestion getQuestion(long index);
     
+    /**
+     * Returns a random {@link TriviaQuestion}
+     * 
+     * @return a random trivia question
+     */
+    TriviaQuestion getRandomQuestion();
+    
+    /**
+     * Returns a list of at most 10 {@link TriviaQuestion} starting at the offset
+     * 
+     * @param offset the starting point
+     * @return a list of at most 10 questions starting the offset
+     */
+    List<TriviaQuestion> getQuestionList(long offset);
+    
+    /**
+     * Returns the total number of {@link TriviaQuestion} in the database
+     * 
+     * @return the number of trivia questions
+     */
+    long getQuestionListSize();
 }
