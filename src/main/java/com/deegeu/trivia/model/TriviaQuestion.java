@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.deegeu.model;
+package com.deegeu.trivia.model;
 
 import java.util.Date;
 import java.util.Objects;

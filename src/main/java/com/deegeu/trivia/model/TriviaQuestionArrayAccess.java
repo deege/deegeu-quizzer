@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package com.deegeu.model;
+package com.deegeu.trivia.model;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -36,6 +36,7 @@ import java.util.Random;
  */
 public class TriviaQuestionArrayAccess implements TriviaQuestionAccessible {
     private ArrayList<TriviaQuestion> questionList;
+    static private final int MAX_NUMBER_OF_QUESTIONS_PER_PAGE = 10;
     
     /**
      * Constructor. Loads the array with trivia questions.
@@ -45,9 +46,14 @@ public class TriviaQuestionArrayAccess implements TriviaQuestionAccessible {
     }
     
     @Override
-    public TriviaQuestion getQuestion(long index) {
+    public TriviaQuestion getQuestionByIndex(long index) {
         // Force conversion from long to an int intentionally.
         return ((int) index < questionList.size()) ? questionList.get((int) index) : null;
+    }
+    
+    @Override
+    public TriviaQuestion getQuestionById(long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     @Override
@@ -65,7 +71,7 @@ public class TriviaQuestionArrayAccess implements TriviaQuestionAccessible {
         if (start >= questionList.size()) {
             start = questionList.size();
         }
-        long end = start + 10;
+        long end = start + MAX_NUMBER_OF_QUESTIONS_PER_PAGE;
         if (end >= questionList.size()) {
             end = questionList.size();
         }
@@ -73,6 +79,11 @@ public class TriviaQuestionArrayAccess implements TriviaQuestionAccessible {
         return questionList.subList((int) start, (int) end);
     }
 
+    @Override
+    public List<TriviaQuestion> getSpecifiedQuestionList(long... id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
     @Override
     public long getQuestionListSize() {
         return questionList.size();
@@ -203,5 +214,19 @@ public class TriviaQuestionArrayAccess implements TriviaQuestionAccessible {
             .lastUpdated(new Date())    
             .build()
         );
+        
+        questionList.add((new TriviaQuestionBuilder())
+            .id(10)
+            .question("The Lone Star State is the nickname for which U.S. State?")
+            .answerA("California")
+            .answerB("Colorado")
+            .answerC("Texas")
+            .answerD("Alaska")
+            .correctAnswer("C")
+            .hint("Don't 'mess' this one up")
+            .lastUpdated(new Date())    
+            .build()
+        );
     }
+
 }

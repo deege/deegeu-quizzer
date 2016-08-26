@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.deegeu.model;
+package com.deegeu.trivia.model;
 
 import java.util.Date;
 import java.util.List;
@@ -35,8 +35,8 @@ public class TriviaQuestionArrayAccessTest {
                 .hint("Use your head on this one")
                 .lastUpdated(new Date())
                 .build();
-        TriviaQuestion result = instance.getQuestion(index);
-        assertEquals("Trivia questions 1 do not match in ::getQuestion().", expResult, result);
+        TriviaQuestion result = instance.getQuestionById(index);
+        assertEquals("Trivia questions 1 do not match in ::getQuestion().", expResult.getId(), result.getId());
     }
 
     /**
@@ -46,7 +46,6 @@ public class TriviaQuestionArrayAccessTest {
     public void testGetRandomQuestion() {
         System.out.println("getRandomQuestion");
         TriviaQuestionArrayAccess instance = new TriviaQuestionArrayAccess();
-        TriviaQuestion expResult = null;
         TriviaQuestion result = instance.getRandomQuestion();
         assertNotNull("A random question was not returned in ::getRandomQuestion().", result);
     }
@@ -72,9 +71,9 @@ public class TriviaQuestionArrayAccessTest {
     public void testGetQuestionListSize() {
         System.out.println("getQuestionListSize");
         TriviaQuestionArrayAccess instance = new TriviaQuestionArrayAccess();
-        long expResult = 10;
+        long expResult = 11;
         long result = instance.getQuestionListSize();
-        assertEquals("There should only be 10 trivia questions in ::getQuestionListSize.", expResult, result);
+        assertEquals("There should only be 11 trivia questions in ::getQuestionListSize.", expResult, result);
     }
     
 }
