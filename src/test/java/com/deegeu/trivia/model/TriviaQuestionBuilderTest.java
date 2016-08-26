@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.deegeu.model;
+package com.deegeu.trivia.model;
 
+import com.deegeu.trivia.model.TriviaQuestion;
+import com.deegeu.trivia.model.TriviaQuestionBuilder;
 import java.util.Date;
 import org.junit.*;
 import static org.junit.Assert.*;

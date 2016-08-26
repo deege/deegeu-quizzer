@@ -1,4 +1,4 @@
-package com.deegeu;
+package com.deegeu.trivia;
 
 import org.junit.*;
 import static org.junit.Assert.*;
