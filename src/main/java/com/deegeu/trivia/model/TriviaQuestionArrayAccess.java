@@ -53,7 +53,12 @@ public class TriviaQuestionArrayAccess implements TriviaQuestionAccessible {
     
     @Override
     public TriviaQuestion getQuestionById(long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        for (TriviaQuestion question: questionList) {
+            if (question.getId() == id) {
+                return question;
+            }
+        }
+        return null;
     }
     
     @Override
