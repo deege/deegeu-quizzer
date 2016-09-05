@@ -4,9 +4,9 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 /**
- * Unit test for simple App.
+ * Unit test for simple TriviaApp.
  */
-public class AppTest {
+public class TriviaAppTest {
 
     /**
      * Rigorous Test :-)
