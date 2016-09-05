@@ -5,8 +5,6 @@
  */
 package com.deegeu.trivia.model;
 
-import com.deegeu.trivia.model.TriviaQuestion;
-import com.deegeu.trivia.model.TriviaQuestionBuilder;
 import java.util.Date;
 import org.junit.*;
 import static org.junit.Assert.*;
