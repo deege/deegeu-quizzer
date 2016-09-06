@@ -34,9 +34,7 @@ import javax.ws.rs.core.Link;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import com.deegeu.utilities.git.GitRepositoryState;
-import java.io.IOException;
-import java.util.Properties;
+import com.deegeu.utilities.git.RepositoryUtils;
 
 /**
  * JAX-RS application. Root path is /trivia
@@ -45,20 +43,6 @@ import java.util.Properties;
 @ApplicationPath("/trivia")
 @Path("")
 public class TriviaApp extends Application {
-
-    private GitRepositoryState gitRepositoryState;
-
-    public TriviaApp() {
-        try {
-            if (gitRepositoryState == null) {
-                Properties properties = new Properties();
-                properties.load(getClass().getClassLoader().getResourceAsStream("git.properties"));
-                gitRepositoryState = new GitRepositoryState(properties);
-            }
-        } catch (IOException ioe) {
-            System.err.println("ERROR: Can't read git.properties: " + ioe.getMessage());
-        }
-    }
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -72,7 +56,7 @@ public class TriviaApp extends Application {
 
         return Response.ok()
                 .lastModified(new Date())
-                .header("trivia-version", gitRepositoryState.getBuildVersion())
+                .header("trivia-version", RepositoryUtils.getGitRepositoryState().getBuildVersion())
                 .location(uri.getRequestUri())
                 .links(selfLink, questionsLink)
                 .build();
