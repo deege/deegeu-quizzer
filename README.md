@@ -1,5 +1,5 @@
 # deegeu-quizzer
-A simple micro service that returns trivia questions.
+A simple micro service that returns trivia questions. This respository is the source code for the Trivia Question microservice playlist on DeegeU.com and [YouTube](https://www.youtube.com/playlist?list=PLZlGOBonMjFVQJgpSUv-sBi1p4Zhb10cz).
 
 
 You can find more programming videos on [the DeegeU channel](http://www.deegeu.com/subscribe)
