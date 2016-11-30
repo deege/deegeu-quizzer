@@ -8,24 +8,24 @@ You can find more programming videos on [the DeegeU channel](http://www.deegeu.c
 
 The application can be run using the following command. Use the correct version for SNAPSHOT and BUILDNUMBER when running. This will launch the application.
 
-'''
+```
 #!bash
 java -jar ./target/deegeu-quizzer.SNAPSHOT.BUILDNUMBER-swarm.jar
-'''
+```
 
 The service can be tested using either curl, REST client, or your favorite browser.
 
 Running the command will return a random question at a command prompt.
-'''
+```
 #!bash
 curl http://localhost:8080/trivia/questions/random
-'''
+```
 
 The starting point for the API is at 
-'''
+```
 #!bash
 curl -I http://localhost:8080/trivia
-'''
+```
 
 This code is written and compiled for Java 8.
 
