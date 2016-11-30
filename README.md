@@ -33,13 +33,13 @@ This code is written and compiled for Java 8.
 
 The mvn POM file requires two parameters passed.
 
-'''mvn clean install -Dproject.version=1.0.0 -Dbuild.number=$BUILD_NUMBER.$GIT_COMMIT
-'''
+```mvn clean install -Dproject.version=1.0.0 -Dbuild.number=$BUILD_NUMBER.$GIT_COMMIT
+```
 
 The code can be compiled locally using 
 
-'''mvn clean install -Dproject.version=1.0.0 -Dbuild.number=001
-'''
+```mvn clean install -Dproject.version=1.0.0 -Dbuild.number=001
+```
 
 ## Getting help
 
