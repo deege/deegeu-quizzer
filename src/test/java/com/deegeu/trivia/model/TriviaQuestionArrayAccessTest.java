@@ -5,9 +5,13 @@
  */
 package com.deegeu.trivia.model;
 
+import org.junit.*;
+
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import org.junit.*;
+import java.util.stream.Collectors;
+
 import static org.junit.Assert.*;
 
 /**
@@ -75,5 +79,21 @@ public class TriviaQuestionArrayAccessTest {
         long result = instance.getQuestionListSize();
         assertEquals("There should only be 11 trivia questions in ::getQuestionListSize.", expResult, result);
     }
-    
+
+    @Test
+    public void getQuestionsBySpecifiedList(){
+
+        TriviaQuestionArrayAccess instance = new TriviaQuestionArrayAccess();
+
+        List<TriviaQuestion> questionList = instance.getSpecifiedQuestionList(0L, 1L, 2L);
+
+        List<Long> actual = questionList.stream()
+                                        .map(TriviaQuestion::getId)
+                                        .collect(Collectors.toList());
+
+        List<Long> expected = Arrays.asList(0L, 1L, 2L);
+        assertTrue(actual.containsAll(expected));
+
+    }
+
 }
