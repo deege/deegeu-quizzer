@@ -24,9 +24,11 @@
 package com.deegeu.trivia.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 /**
  * Accesses the trivia question "database". This is used to test out the rest of
@@ -35,7 +37,7 @@ import java.util.Random;
  * @author DJ Spiess
  */
 public class TriviaQuestionArrayAccess implements TriviaQuestionAccessible {
-    private ArrayList<TriviaQuestion> questionList;
+    private List<TriviaQuestion> questionList;
     static private final int MAX_NUMBER_OF_QUESTIONS_PER_PAGE = 10;
     
     /**
@@ -86,7 +88,17 @@ public class TriviaQuestionArrayAccess implements TriviaQuestionAccessible {
 
     @Override
     public List<TriviaQuestion> getSpecifiedQuestionList(long... id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        // Convert the var args into a List
+        final List<Long> ids = Arrays.stream(id)
+                                     .boxed()
+                                     .collect(Collectors.toList());
+
+        // Filter the question list to only have question with the given ids
+        return this.questionList.stream()
+                                .filter(p -> ids.contains(p.getId()))
+                                .collect(Collectors.toList());
+
     }
     
     @Override
